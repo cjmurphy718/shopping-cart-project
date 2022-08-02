@@ -14,3 +14,10 @@ Make sure you can run the data
 ```sh
 python shopping_cart.py
 ```
+
+Install pandas
+```sh pip install pandas
+```
+
+#Save the Data
+Save a copy of the default_prouducts.csv as data/products.csv in your repo
