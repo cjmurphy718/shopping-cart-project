@@ -25,22 +25,30 @@ while True:
        chosen_ids.append(chosen_id)
 
 
+#Intro Messages
+#from datetime import date
+#today = date.today()
+#today_2 = today.strftime("%B %d, %Y")
+from datetime import datetime
+now = datetime.now()
+dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
+# Help from https://www.programiz.com/python-programming/datetime/current-datetime
+
+print("------")
+print("Thank you for shopping at Carol's Grocers!")
+print("www.carolsgrocers.com")
+print("-----")
+print("Checkout at:", " ", dt_string)
+print("Itemized Receipt:")
+
 #When Done, Total Price
+#price_usd = products_df["price"]
+#def to_usd (price_usd):
+#    return f"${price_usd:,.2f}" #> $12,000.71
 for chosen_id in chosen_ids:
     matching_product = [product for index, product in products_df.iterrows() if str((product["id"])) == str(chosen_id)]
     total_price = total_price + matching_product[0]["price"]
-    print("Selected Product:" + matching_product[0]["name"] + " " + str(matching_product[0]["price"]))
+    print(matching_product[0]["name"] + " " +"(" + str(matching_product[0]["price"]) + ")")
+print("-----")
+print("Subtotal:" + " " + str(total_price))
 
-print("Total Price:" + str(total_price))
-
-def to_usd(my_price):
-    """
-    Converts a numeric value to usd-formatted string, for printing and display purposes.
-
-    Param: my_price (int or float) like 4000.444444
-
-    Example: to_usd(4000.444444)
-
-    Returns: $4,000.44
-    """
-    return f"${my_price:,.2f}" #> $12,000.71
