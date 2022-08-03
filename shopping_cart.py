@@ -4,19 +4,26 @@ import os
 csv_filepath = os.path.join(os.path.dirname(__file__), "data", "products.csv")
 from pandas import read_csv
 products_df = read_csv(csv_filepath)
+
+
 #print(products_df.head())
 #print(type(products_df))
 #print(products_df.columns)
 
 
 
-#Import Products
 
-# chosen_id = input("Please input a product identifier: ")
-# print(chosen_id)
+#Import and Lookup Product
 
-#Lookup Product
-# matching_product = [product for product in products if str(product["id"]) == str(chosen_id)]
+while True:
+    chosen_id = (input("Please input a product identifier, or DONE if there are no more products: "))
+    chosen_id = chosen_id.upper()
+    if chosen_id == "DONE":
+        break
+
+    matching_product = [product for index, product in products_df.iterrows() if str((product["id"])) == str(chosen_id)]
+    print(type(matching_product))
+    print("Selected Product:" + matching_product[0]["name"] + " " + str(matching_product[0]["price"]))
 
 def to_usd(my_price):
     """
