@@ -42,9 +42,7 @@ print("Checkout at:", " ", dt_string)
 print("Itemized Receipt:")
 
 #When Done, Total Price
-#price_usd = products_df["price"]
-#def to_usd (price_usd):
-#    return f"${price_usd:,.2f}" #> $12,000.71
+
 for chosen_id in chosen_ids:
     matching_product = [product for index, product in products_df.iterrows() if str((product["id"])) == str(chosen_id)]
     total_price = total_price + matching_product[0]["price"]
@@ -52,3 +50,8 @@ for chosen_id in chosen_ids:
 print("-----")
 print("Subtotal:" + " " + str(total_price))
 
+
+sales_tax = (total_price * .0875)
+total_amount = (total_price + sales_tax)
+print("Sales Tax: ", sales_tax)
+print("Grand Total: ", total_amount)
