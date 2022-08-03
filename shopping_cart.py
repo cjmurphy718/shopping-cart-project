@@ -14,16 +14,20 @@ products_df = read_csv(csv_filepath)
 
 
 #Import and Lookup Product
-
+total_price = 0 
 while True:
     chosen_id = (input("Please input a product identifier, or DONE if there are no more products: "))
     chosen_id = chosen_id.upper()
     if chosen_id == "DONE":
         break
-
-    matching_product = [product for index, product in products_df.iterrows() if str((product["id"])) == str(chosen_id)]
-    print(type(matching_product))
+    else:
+        matching_product = [product for index, product in products_df.iterrows() if str((product["id"])) == str(chosen_id)]
+    #print(type(matching_product))
+    total_price = total_price + matching_product[0]["price"]
     print("Selected Product:" + matching_product[0]["name"] + " " + str(matching_product[0]["price"]))
+
+#When Done, Total Price
+print("Total Price:" + str(total_price))
 
 def to_usd(my_price):
     """
