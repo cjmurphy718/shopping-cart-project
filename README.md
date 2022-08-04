@@ -10,6 +10,8 @@ Activate the virtual environment
 conda activate shopping-env
 ````
 
+Navigate to your Repo
+
 Make sure you can run the data
 ```sh
 python shopping_cart.py
