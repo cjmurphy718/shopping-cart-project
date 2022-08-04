@@ -4,19 +4,23 @@ import os
 csv_filepath = os.path.join(os.path.dirname(__file__), "data", "products.csv")
 from pandas import read_csv
 products_df = read_csv(csv_filepath)
-
+print("Welcome to Carol's!")
 
 #Import and Lookup Product
 chosen_ids = []
 total_price = 0 
+available_ids = []
+for index, rows in products_df.iterrows():
+    available_ids.append(str(rows['id']))
 while True:
     chosen_id = (input("Please input a product identifier, or DONE if there are no more products: "))
     chosen_id = chosen_id.upper()
     if chosen_id == "DONE":
         break
+    elif str(chosen_id) not in available_ids:  
+        print("That is not a valid product ID! Please try again.")
     else:
-       chosen_ids.append(chosen_id)
-
+        chosen_ids.append(chosen_id)
 
 #Intro Messages
 

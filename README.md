@@ -31,4 +31,5 @@ Type the following code to run the program:
 python shopping_cart.py
 ```
 
-When prompted to input product identifiers, input a number.
+When prompted to input product identifiers, input a number. 
+When you have typed in all your products, type 'done.'
